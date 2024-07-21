@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java日常笔记 | H-Loong</title><meta name="author" content="H-Loong"><meta name="copyright" content="H-Loong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java日常笔记12345678910111213141516171819202122232425262728293031323334System.out.println(&quot;\t&quot;,&quot;\n&quot;);System.out.println();  &#x2F;&#x2F;换行System.out.println(&quot;结果&quot; + sum); &#x2F;&#x2F;拼接char gende">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java日常笔记">
+<meta property="og:url" content="https://h-loong.github.io/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="H-Loong">
+<meta property="og:description" content="Java日常笔记12345678910111213141516171819202122232425262728293031323334System.out.println(&quot;\t&quot;,&quot;\n&quot;);System.out.println();  &#x2F;&#x2F;换行System.out.println(&quot;结果&quot; + sum); &#x2F;&#x2F;拼接char gende">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg">
+<meta property="article:published_time" content="2023-11-11T07:20:21.000Z">
+<meta property="article:modified_time" content="2024-05-28T05:03:58.451Z">
+<meta property="article:author" content="H-Loong">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://h-loong.github.io/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?f0523347b983847f8af63b11968b815c;";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java日常笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-28 13:03:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="H-Loong"><span class="site-name">H-Loong</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java日常笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-11T07:20:21.000Z" title="发表于 2023-11-11 15:20:21">2023-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-28T05:03:58.451Z" title="更新于 2024-05-28 13:03:58">2024-05-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java日常笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Java日常笔记"><a href="#Java日常笔记" class="headerlink" title="Java日常笔记"></a>Java日常笔记</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;\t&quot;</span>,<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">System.out.println();  <span class="comment">//换行</span></span><br><span class="line">System.out.println(<span class="string">&quot;结果&quot;</span> + sum); <span class="comment">//拼接</span></span><br><span class="line"></span><br><span class="line"><span class="type">char</span> <span class="variable">gender</span> <span class="operator">=</span> <span class="string">&#x27;男&#x27;</span>;   <span class="comment">//字符单引号</span></span><br><span class="line"><span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;king&quot;</span>; <span class="comment">//字符串双引号</span></span><br><span class="line"><span class="type">float</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">1.1F</span>;  <span class="comment">//float型常量后面需要加 f 或者 F</span></span><br><span class="line"><span class="type">String</span> <span class="variable">Str</span> <span class="operator">=</span> num + <span class="string">&quot;&quot;</span>;  <span class="comment">//基本数据类型转String类型</span></span><br><span class="line">Integer.parseInt(<span class="string">&quot;123&quot;</span>);  <span class="comment">//String ——&gt; int</span></span><br><span class="line">Double.parseDouble(<span class="string">&quot;123.1&quot;</span>); <span class="comment">//String ——&gt; double</span></span><br><span class="line"><span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> Integer.parseInt(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*命名规范</span></span><br><span class="line"><span class="comment">包名：字母都小写 aaa.bbb.ccc</span></span><br><span class="line"><span class="comment">类名、接口名：大驼峰 TankShotGame</span></span><br><span class="line"><span class="comment">变量名、方法名：小驼峰 tankShotGame</span></span><br><span class="line"><span class="comment">常量名：所有字母大写 多单词用下划线  TAX_RATE</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">myScanner</span> <span class="operator">=</span> <span class="keyword">new</span> (System.in);</span><br><span class="line"><span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> myScanner.nextInt();</span><br><span class="line"><span class="type">char</span> <span class="variable">ch</span> <span class="operator">=</span> myScanner.next().charAt(<span class="number">0</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> myScanner.next();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(gender == <span class="string">&#x27;男&#x27;</span>)   <span class="comment">//字符、数字用 == 判断相等</span></span><br><span class="line"><span class="keyword">if</span>(<span class="string">&quot;字符串&quot;</span>.equals(str))  <span class="comment">//字符串用 equals 判断相等</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> <span class="number">0b1010</span>;   <span class="comment">//二进制 0b</span></span><br><span class="line"><span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> <span class="number">01010</span>;    <span class="comment">//八进制 0</span></span><br><span class="line"><span class="type">int</span> <span class="variable">n3</span> <span class="operator">=</span> <span class="number">0x1010</span>;   <span class="comment">//十六进制 0x</span></span><br><span class="line"></span><br><span class="line">(<span class="type">int</span>)(Math.random()*<span class="number">100</span>) + <span class="number">1</span>; <span class="comment">//生成随机数</span></span><br><span class="line"><span class="type">Random</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> r.nextInt(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Java在处理浮点数时，需要<strong>高精度</strong>时可以使用<strong>BigDecimal</strong>类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDeciaml;</span><br><span class="line"><span class="type">BigDecimal</span>  <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(scanner.nextDouble());</span><br></pre></td></tr></table></figure>
+
+<p>Java<strong>向上取整</strong> <strong>Math.ceil</strong> 将浮点数向上取整</p>
+<h4 id="知道两点坐标求线段长度"><a href="#知道两点坐标求线段长度" class="headerlink" title="知道两点坐标求线段长度"></a>知道两点坐标求线段长度</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">distance</span> <span class="operator">=</span> Math.sqrt(Math.pow(x2 - x1, <span class="number">2</span>) + Math.pow(y2 - y1, <span class="number">2</span>));</span><br><span class="line">Math.sqrt  <span class="comment">//求平方根</span></span><br><span class="line">Math.pow   <span class="comment">//x的Y次方</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="知道三点坐标求三角形面积"><a href="#知道三点坐标求三角形面积" class="headerlink" title="知道三点坐标求三角形面积"></a>知道三点坐标求三角形面积</h4><p>假设三个点的坐标为 (x1, y1), (x2, y2), 和 (x3, y3)，可以按照以下步骤计算三角形的面积：</p>
+<ol>
+<li><p>计算三个边的长度 a、b、c，其中：</p>
+<ul>
+<li>a &#x3D; sqrt((x2 - x1)^2 + (y2 - y1)^2)</li>
+<li>b &#x3D; sqrt((x3 - x2)^2 + (y3 - y2)^2)</li>
+<li>c &#x3D; sqrt((x1 - x3)^2 + (y1 - y3)^2)</li>
+</ul>
+</li>
+<li><p>使用海伦公式计算面积 s，其中 s 为半周长，可以通过以下公式计算：</p>
+<ul>
+<li>s &#x3D; (a + b + c) &#x2F; 2</li>
+</ul>
+</li>
+<li><p>最后，使用以下公式计算三角形的面积 A：</p>
+<ul>
+<li>A &#x3D; sqrt(s * (s - a) * (s - b) * (s - c))</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line"></span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第一个点的 x 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">x1</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第一个点的 y 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">y1</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第二个点的 x 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">x2</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第二个点的 y 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">y2</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第三个点的 x 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">x3</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line">        System.out.print(<span class="string">&quot;请输入第三个点的 y 坐标: &quot;</span>);</span><br><span class="line">        <span class="type">double</span> <span class="variable">y3</span> <span class="operator">=</span> scanner.nextDouble();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算三个边的长度</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">a</span> <span class="operator">=</span> Math.sqrt(Math.pow(x2 - x1, <span class="number">2</span>) + Math.pow(y2 - y1, <span class="number">2</span>));</span><br><span class="line">        <span class="type">double</span> <span class="variable">b</span> <span class="operator">=</span> Math.sqrt(Math.pow(x3 - x2, <span class="number">2</span>) + Math.pow(y3 - y2, <span class="number">2</span>));</span><br><span class="line">        <span class="type">double</span> <span class="variable">c</span> <span class="operator">=</span> Math.sqrt(Math.pow(x1 - x3, <span class="number">2</span>) + Math.pow(y1 - y3, <span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 计算半周长</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">s</span> <span class="operator">=</span> (a + b + c) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用海伦公式计算三角形的面积</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">area</span> <span class="operator">=</span> Math.sqrt(s * (s - a) * (s - b) * (s - c));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出结果</span></span><br><span class="line">        System.out.println(<span class="string">&quot;三角形的面积为: &quot;</span> + area);</span><br><span class="line"></span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a>StringBuilder类</h4><p><code>StringBuilder</code> 是 Java 中的一个类，用于处理字符串的可变版本。它允许你在字符串对象中进行动态的添加、修改和删除操作，而不会创建新的字符串对象，因此在处理大量字符串拼接或修改操作时，使用 <code>StringBuilder</code> 通常比使用普通的字符串拼接操作更高效。</p>
+<p><code>StringBuilder</code> 类提供了多个方法，用于对可变字符串进行操作。以下是一些常用的 <code>StringBuilder</code> 方法：</p>
+<ol>
+<li><code>append(String str)</code>：将指定字符串添加到当前字符串的末尾。</li>
+<li><code>append(char c)</code>：将指定字符添加到当前字符串的末尾。</li>
+<li><code>insert(int offset, String str)</code>：在指定位置插入指定字符串。</li>
+<li><code>insert(int offset, char c)</code>：在指定位置插入指定字符。</li>
+<li><code>delete(int start, int end)</code>：删除从指定起始位置到结束位置之间的字符。</li>
+<li><code>deleteCharAt(int index)</code>：删除指定位置的字符。</li>
+<li><code>replace(int start, int end, String str)</code>：用指定字符串替换从指定起始位置到结束位置之间的字符。</li>
+<li><code>substring(int start)</code>：从指定位置开始提取子字符串。</li>
+<li><code>substring(int start, int end)</code>：从指定起始位置到结束位置之间提取子字符串。</li>
+<li><code>reverse()</code>：反转当前字符串。</li>
+<li><code>length()</code>：返回当前字符串的长度。</li>
+<li><code>capacity()</code>：返回当前字符串的容量（即字符数组的长度）。</li>
+<li><code>setLength(int newLength)</code>：设置当前字符串的长度，可以用于截取或扩展字符串。</li>
+<li><code>charAt(int index)</code>：返回指定位置的字符。</li>
+<li><code>indexOf(String str)</code>：返回指定字符串在当前字符串中第一次出现的位置。</li>
+<li><code>lastIndexOf(String str)</code>：返回指定字符串在当前字符串中最后一次出现的位置。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">sb.append(<span class="string">&quot;Hello, &quot;</span>);</span><br><span class="line">sb.append(<span class="string">&quot;world!&quot;</span>);</span><br><span class="line">sb.insert(<span class="number">7</span>, <span class="string">&quot;beautiful &quot;</span>);</span><br><span class="line">sb.delete(<span class="number">0</span>, <span class="number">5</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> sb.toString();</span><br><span class="line"></span><br><span class="line">System.out.println(result); <span class="comment">// 输出：beautiful world!</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="读取整个输入行"><a href="#读取整个输入行" class="headerlink" title="读取整个输入行"></a>读取整个输入行</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> scanner.nextLine();</span><br></pre></td></tr></table></figure>
+
+<h4 id="Character类"><a href="#Character类" class="headerlink" title="Character类"></a>Character类</h4><p><code>Character</code> 是 Java 中的一个类，它用于表示和操作字符数据类型。在 Java 中，字符数据类型用 <code>char</code> 表示，而 <code>Character</code> 类提供了一些实用的静态方法和常量，用于处理字符数据。</p>
+<p>以下是一些 <code>Character</code> 类的常用方法和常量：</p>
+<ol>
+<li><code>isLetter(char ch)</code>：检查字符是否为字母。</li>
+<li><code>isDigit(char ch)</code>：检查字符是否为数字。</li>
+<li><code>isWhitespace(char ch)</code>：检查字符是否为空白字符（空格、制表符、换行符等）。</li>
+<li><code>isLowerCase(char ch)</code>：检查字符是否为小写字母。</li>
+<li><code>isUpperCase(char ch)</code>：检查字符是否为大写字母。</li>
+<li><code>toLowerCase(char ch)</code>：将字符转换为小写形式。</li>
+<li><code>toUpperCase(char ch)</code>：将字符转换为大写形式。</li>
+<li><code>toString(char ch)</code>：将字符转换为字符串。</li>
+<li><code>MAX_VALUE</code>：<code>char</code> 数据类型的最大值，对应于 Unicode 中的 65535。</li>
+<li><code>MIN_VALUE</code>：<code>char</code> 数据类型的最小值，对应于 Unicode 中的 0。</li>
+</ol>
+<h4 id="求最大值"><a href="#求最大值" class="headerlink" title="求最大值"></a>求最大值</h4><p>在 Java 中，要比较多个数并找到它们中的最大值，有几种不同的方法，具体取决于你的需求和代码的复杂性。下面列出了一些常见的方法：</p>
+<ol>
+<li>使用循环：<br>你可以使用循环遍历所有的数字，并在循环中比较它们，找到最大值。这是一种通用且直观的方法，适用于任意数量的数字。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>[] numbers = &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>&#125;;</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> numbers[<span class="number">0</span>]; <span class="comment">// 假设第一个元素是最大的</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; numbers.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (numbers[i] &gt; max) &#123;</span><br><span class="line">        max = numbers[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">&quot;最大值是：&quot;</span> + max);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用 <code>Math.max</code> 方法的连续调用：<br>如果你要比较的数字数量较少（例如，不超过3个），你可以使用 <code>Math.max</code> 方法的连续调用来比较它们的大小，找到最大值。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> Math.max(a, Math.max(b, c));</span><br><span class="line">System.out.println(<span class="string">&quot;最大值是：&quot;</span> + max);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用 Java 8 的 Stream API：<br>如果你在 Java 8 或更新版本中编写代码，你可以使用 Stream API 来处理集合中的数字并找到最大值。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; numbers = Arrays.asList(<span class="number">5</span>, <span class="number">10</span>, <span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>);</span><br><span class="line"><span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> numbers.stream()</span><br><span class="line">                .mapToInt(Integer::intValue)</span><br><span class="line">                .max()</span><br><span class="line">                .orElse(<span class="number">0</span>); <span class="comment">// 如果集合为空，返回默认值</span></span><br><span class="line">System.out.println(<span class="string">&quot;最大值是：&quot;</span> + max);</span><br></pre></td></tr></table></figure>
+
+<p>无论选择哪种方法，都可以根据具体情况来决定哪种最适合你的需求和代码结构。通常情况下，使用循环是最通用的方法，因为它可以处理任意数量的数字。而对于较少的数字，其他方法也是有效的。</p>
+<h4 id="做题中的点"><a href="#做题中的点" class="headerlink" title="做题中的点"></a>做题中的点</h4><p>获取字符串中某个位置字符 char c &#x3D; str.charAt(位置)</p>
+<p>想要抛出异常在可能发生异常程序后面 throw new Exception(“  “);</p>
+<p>在该方法后面  以及主方法中  throws Exception </p>
+<p>想知道一个字符串中是否包含某个字符用  str.contains(“@”)</p>
+<p>截取字符串片段 str.substring(起始，终止)  ，左闭右开</p>
+<p><strong>质数求解</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">getPrimeNumber</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">2</span>) &#123;<span class="comment">//此范围内的数均不为质数</span></span><br><span class="line">            System.out.println(n+<span class="string">&quot;不是质数&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;<span class="comment">//结束程序</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">2</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;2是质数&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//在 2到 1+n开方范围(数学理论)，找能把n整除的值(这个值也称作因子)</span></span><br><span class="line">        <span class="comment">//如果找到可以把n整除的第三个数，那n就不是质数,反之,n为质数</span></span><br><span class="line">        <span class="type">double</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">1</span>+ Math.sqrt(n);<span class="comment">//max保存的是查找因子的范围</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//依次遍历范围内的所有数,验证是否存在n的因子</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;max; i++) &#123;</span><br><span class="line">            <span class="comment">//判断n能不能被i整除,如果有,说明不是质数</span></span><br><span class="line">            <span class="keyword">if</span>(n%i == <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(n+<span class="string">&quot;不是质数&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果判断了范围内的所有值，没有能整除的,则说明n是质数</span></span><br><span class="line">        System.out.println(n+<span class="string">&quot;是质数&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>随机数</strong></p>
+<p><code>Random</code> 是 Java 中的一个类，用于生成伪随机数。它可以用于各种需要随机性的应用，例如游戏、模拟、密码学、随机测试等。以下是关于 <code>Random</code> 类的一些重要信息：</p>
+<ol>
+<li><p><strong>创建 Random 实例</strong>：要使用 <code>Random</code> 类，首先需要创建一个 <code>Random</code> 类的实例。通常可以使用无参数构造函数创建一个默认的 <code>Random</code> 实例，如下所示：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br></pre></td></tr></table></figure>
+
+<p> 这将创建一个基于当前系统时间的种子生成器，以初始化随机数生成器。</p>
+</li>
+<li><p><strong>生成随机整数</strong>：<code>Random</code> 类的主要方法是 <code>nextInt()</code>，它可以生成一个随机整数。你可以选择传入一个整数参数，表示生成整数的范围。例如，生成一个0到99之间的随机整数：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">randomNumber</span> <span class="operator">=</span> random.nextInt(<span class="number">100</span>); <span class="comment">// 生成0到99之间的随机整数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>生成随机浮点数</strong>：除了生成整数，<code>Random</code> 类还可以生成随机浮点数，如下所示：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">randomDouble</span> <span class="operator">=</span> random.nextDouble(); <span class="comment">// 生成0.0（包括）到1.0（不包括）之间的随机浮点数</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="Math常用方法"><a href="#Math常用方法" class="headerlink" title="Math常用方法"></a>Math常用方法</h4><p>Java中的<code>java.lang.Math</code>类包含了一系列常用的数学方法，可以用来执行各种数学计算。以下是一些<code>Math</code>类中常用的方法：</p>
+<ol>
+<li><p><code>abs(double a)</code>：返回一个double值的绝对值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">absoluteValue</span> <span class="operator">=</span> Math.abs(-<span class="number">5.5</span>); <span class="comment">// 结果为 5.5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ceil(double a)</code>：返回不小于参数的最小整数值（向上取整）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">roundedUp</span> <span class="operator">=</span> Math.ceil(<span class="number">5.1</span>); <span class="comment">// 结果为 6.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>floor(double a)</code>：返回不大于参数的最大整数值（向下取整）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">roundedDown</span> <span class="operator">=</span> Math.floor(<span class="number">5.9</span>); <span class="comment">// 结果为 5.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>round(double a)</code>：返回最接近参数的整数值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">rounded</span> <span class="operator">=</span> Math.round(<span class="number">5.4</span>); <span class="comment">// 结果为 5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>max(double a, double b)</code>：返回两个double值中的较大值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">maxValue</span> <span class="operator">=</span> Math.max(<span class="number">10.5</span>, <span class="number">8.2</span>); <span class="comment">// 结果为 10.5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>min(double a, double b)</code>：返回两个double值中的较小值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">minValue</span> <span class="operator">=</span> Math.min(<span class="number">10.5</span>, <span class="number">8.2</span>); <span class="comment">// 结果为 8.2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>pow(double a, double b)</code>：返回a的b次方。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">result</span> <span class="operator">=</span> Math.pow(<span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 结果为 8.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>sqrt(double a)</code>：返回a的平方根。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">squareRoot</span> <span class="operator">=</span> Math.sqrt(<span class="number">16.0</span>); <span class="comment">// 结果为 4.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>random()</code>：返回一个[0,1)范围内的随机双精度浮点数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">randomValue</span> <span class="operator">=</span> Math.random();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>sin(double a)</code>、<code>cos(double a)</code>、<code>tan(double a)</code>：分别返回a的正弦、余弦和正切值，参数为弧度。</p>
+   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> <span class="variable">sineValue</span> <span class="operator">=</span> Math.sin(Math.PI / <span class="number">6</span>); <span class="comment">// 弧度30°的正弦值</span></span><br><span class="line"><span class="type">double</span> <span class="variable">cosineValue</span> <span class="operator">=</span> Math.cos(Math.PI / <span class="number">3</span>); <span class="comment">// 弧度60°的余弦值</span></span><br><span class="line"><span class="type">double</span> <span class="variable">tangentValue</span> <span class="operator">=</span> Math.tan(Math.PI / <span class="number">4</span>); <span class="comment">// 弧度45°的正切值</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这些方法允许您执行各种常见的数学操作。请注意，大多数Math类方法接受和返回的数据类型为double。如果需要其他数据类型的结果，您可能需要进行类型转换。</p>
+<h4 id="不使用第三变量交换两个变量值"><a href="#不使用第三变量交换两个变量值" class="headerlink" title="不使用第三变量交换两个变量值"></a>不使用第三变量交换两个变量值</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用加法实现——第一版</span></span><br><span class="line">a = a + b;<span class="comment">//a中为和的值</span></span><br><span class="line">b = a - b;<span class="comment">//b中为a的值</span></span><br><span class="line">a = a - b;<span class="comment">//a中为b的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用加法实现——第二版</span></span><br><span class="line">a += b - (b = a);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用异或实现——第一版</span></span><br><span class="line">a = a ^ b;<span class="comment">//a中为异或后的结果</span></span><br><span class="line">b = a ^ b;<span class="comment">//异或后的结果在与b异或，结果为a</span></span><br><span class="line">a = a ^ b;异或后的结果在与a异或，结果为b</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用异或实现——第二版</span></span><br><span class="line">a ^= b ^ (b = a);</span><br></pre></td></tr></table></figure>
+
+<p>获取一个类的名字，obj.getClass().getName()</p>
+<p><strong>十进制转二进制：</strong>Integer.toBinaryString(int a);</p>
+<h4 id="对字符串进行拆分"><a href="#对字符串进行拆分" class="headerlink" title="对字符串进行拆分"></a>对字符串进行拆分</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ip = <span class="number">192.168</span><span class="number">.100</span><span class="number">.100</span></span><br><span class="line">user = <span class="type">root</span></span><br><span class="line"><span class="variable">pwd</span> <span class="operator">=</span> <span class="number">12345</span> </span><br><span class="line">String[] split = line.split(<span class="string">&quot;=&quot;</span>);</span><br><span class="line">            System.out.println(split[<span class="number">0</span>] + <span class="string">&quot;值是：&quot;</span> + split[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">ip 值是： <span class="number">192.168</span><span class="number">.100</span><span class="number">.100</span></span><br><span class="line">user 值是： root</span><br><span class="line">pwd 值是： <span class="number">12345</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://H-Loong.github.io">H-Loong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://h-loong.github.io/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">https://h-loong.github.io/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://H-Loong.github.io" target="_blank">H-Loong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/14/Java%E5%9F%BA%E7%A1%80%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8/" title="Java基础——入门"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java基础——入门</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/10/%E6%95%B0%E7%BB%84/" title="数组"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数组</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">H-Loong</div><div class="author-info__description">埋头去做，总会发光发热</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/H-Loong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/H-Loong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2638102494@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2638102494&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎朋友们光临本小站！一起交流学习！（如果图片加载过慢，请使用加速器访问或耐心等待）</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Java日常笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A5%E9%81%93%E4%B8%A4%E7%82%B9%E5%9D%90%E6%A0%87%E6%B1%82%E7%BA%BF%E6%AE%B5%E9%95%BF%E5%BA%A6"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">知道两点坐标求线段长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A5%E9%81%93%E4%B8%89%E7%82%B9%E5%9D%90%E6%A0%87%E6%B1%82%E4%B8%89%E8%A7%92%E5%BD%A2%E9%9D%A2%E7%A7%AF"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">知道三点坐标求三角形面积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#StringBuilder%E7%B1%BB"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">StringBuilder类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B4%E4%B8%AA%E8%BE%93%E5%85%A5%E8%A1%8C"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">读取整个输入行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Character%E7%B1%BB"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">Character类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">求最大值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9A%E9%A2%98%E4%B8%AD%E7%9A%84%E7%82%B9"><span class="toc-number">1.0.0.7.</span> <span class="toc-text">做题中的点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Math%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.0.8.</span> <span class="toc-text">Math常用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E5%80%BC"><span class="toc-number">1.0.0.9.</span> <span class="toc-text">不使用第三变量交换两个变量值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9B%E8%A1%8C%E6%8B%86%E5%88%86"><span class="toc-number">1.0.0.10.</span> <span class="toc-text">对字符串进行拆分</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/10/Redis/" title="万字理清Redis">万字理清Redis</a><time datetime="2024-07-10T07:20:21.000Z" title="发表于 2024-07-10 15:20:21">2024-07-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/20/redis%E5%91%BD%E4%BB%A4/" title="Redis五大数据结构相关命令">Redis五大数据结构相关命令</a><time datetime="2024-06-20T07:20:21.000Z" title="发表于 2024-06-20 15:20:21">2024-06-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/15/Linux%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E8%AF%A6%E8%A7%A3/" title="Linux常用操作详解">Linux常用操作详解</a><time datetime="2024-06-15T07:20:21.000Z" title="发表于 2024-06-15 15:20:21">2024-06-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/" title="计算机系统结构">计算机系统结构</a><time datetime="2024-05-02T07:20:21.000Z" title="发表于 2024-05-02 15:20:21">2024-05-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/22/%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E7%B3%BB%E7%BB%9F/" title="用户中心系统">用户中心系统</a><time datetime="2024-04-22T07:20:21.000Z" title="发表于 2024-04-22 15:20:21">2024-04-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By H-Loong</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://h-loong.github.io/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/'
+    this.page.identifier = '/2023/11/11/Java%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/'
+    this.page.title = 'Java日常笔记'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
