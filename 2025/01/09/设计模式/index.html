@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>设计模式常见八股文 | H-Loong</title><meta name="author" content="H-Loong"><meta name="copyright" content="H-Loong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="设计模式常见八股文单例模式有哪几种实现？如何保证线程安全？单例模式有懒汉式、饿汉式、双重检查锁定、静态内部类和枚举单例 懒汉式: 通过使用 synchronized 来确保线程安全，但可能会影响性能。 饿汉式：实例在类加载时就创建，线程安全 双重检查锁定: 通过双重检查 instance &#x3D;&#x3D; null 来减少锁的竞争，提升性能，并且需要使用 volatile 关键字保证实例的正确性。 静态内部类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式常见八股文">
+<meta property="og:url" content="https://h-loong.github.io/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:site_name" content="H-Loong">
+<meta property="og:description" content="设计模式常见八股文单例模式有哪几种实现？如何保证线程安全？单例模式有懒汉式、饿汉式、双重检查锁定、静态内部类和枚举单例 懒汉式: 通过使用 synchronized 来确保线程安全，但可能会影响性能。 饿汉式：实例在类加载时就创建，线程安全 双重检查锁定: 通过双重检查 instance &#x3D;&#x3D; null 来减少锁的竞争，提升性能，并且需要使用 volatile 关键字保证实例的正确性。 静态内部类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg">
+<meta property="article:published_time" content="2025-01-09T07:20:21.000Z">
+<meta property="article:modified_time" content="2025-02-16T11:13:11.887Z">
+<meta property="article:author" content="H-Loong">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://h-loong.github.io/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?f0523347b983847f8af63b11968b815c;";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '设计模式常见八股文',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-16 19:13:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="H-Loong"><span class="site-name">H-Loong</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">设计模式常见八股文</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-09T07:20:21.000Z" title="发表于 2025-01-09 15:20:21">2025-01-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-16T11:13:11.887Z" title="更新于 2025-02-16 19:13:11">2025-02-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设计模式常见八股文"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="设计模式常见八股文"><a href="#设计模式常见八股文" class="headerlink" title="设计模式常见八股文"></a>设计模式常见八股文</h1><h3 id="单例模式有哪几种实现？如何保证线程安全？"><a href="#单例模式有哪几种实现？如何保证线程安全？" class="headerlink" title="单例模式有哪几种实现？如何保证线程安全？"></a>单例模式有哪几种实现？如何保证线程安全？</h3><p><strong>单例模式有懒汉式、饿汉式、双重检查锁定、静态内部类和枚举单例</strong></p>
+<p><strong>懒汉式</strong>: 通过使用 <code>synchronized</code> 来确保线程安全，但可能会影响性能。</p>
+<p><strong>饿汉式</strong>：实例在类加载时就创建，线程安全</p>
+<p><strong>双重检查锁定</strong>: 通过双重检查 <code>instance == null</code> 来减少锁的竞争，提升性能，并且需要使用 <code>volatile</code> 关键字保证实例的正确性。</p>
+<p><strong>静态内部类</strong>: 通过类加载机制确保线程安全，避免了不必要的资源浪费。</p>
+<p><strong>枚举单例</strong>: 使用枚举的特性，天生线程安全，推荐使用。</p>
+<hr>
+<h3 id="什么是策略模式？一般用在什么场景？"><a href="#什么是策略模式？一般用在什么场景？" class="headerlink" title="什么是策略模式？一般用在什么场景？"></a>什么是策略模式？一般用在什么场景？</h3><p>策略模式是一种行为型设计模式，它定义了一系列算法，并将每个算法封装起来，使它们可以互相替换，且算法的变化不会影响使用它的客户代码（调用方）。<br>通过策略模式，可以消除代码中大量的 <code>if-else</code> 或 <code>switch</code> 语句，提升代码的灵活性和可维护性。</p>
+<p><strong>策略模式的核心特点：</strong></p>
+<p><strong>算法封装：</strong>将算法的实现与使用算法的代码分离，通过封装提高代码的灵活性和可扩展性。</p>
+<p><strong>动态替换：</strong>可以在运行时选择和替换算法，适应不同场景的需求。</p>
+<p><strong>遵循开闭原则：</strong>增加新的策略时无需修改现有代码，只需新增一个实现即可。</p>
+<p><strong>应用场景</strong>：</p>
+<p><strong>多种算法可互换的场景：</strong>当需要动态选择算法时，比如排序算法、支付方式等。</p>
+<p><strong>避免复杂的条件语句：</strong>可以通过策略模式消除代码中大量的 <code>if-else</code> 或 <code>switch</code> 语句。</p>
+<p><strong>算法与上下文独立：</strong>当客户端只需要知道算法的抽象定义，而不需要了解具体实现时。</p>
+<p><strong>典型应用场景：</strong></p>
+<p><strong>支付系统：</strong>支持多种支付方式（如微信、支付宝、信用卡），根据用户选择动态调用不同的支付算法。</p>
+<p><strong>数据压缩：</strong>提供不同的数据压缩算法，客户端可根据需求动态选择。</p>
+<p><strong>日志策略：</strong>根据日志级别动态选择记录策略，比如按文件输出、按数据库存储等。</p>
+<hr>
+<h3 id="什么是模板方法模式？一般用在什么场景？"><a href="#什么是模板方法模式？一般用在什么场景？" class="headerlink" title="什么是模板方法模式？一般用在什么场景？"></a>什么是模板方法模式？一般用在什么场景？</h3><p>模板方法模式是一种行为设计模式，它定义了一个算法的骨架，并允许子类在不改变算法结构的情况下重新定义某些步骤的具体实现。</p>
+<p>模板方法模式主要通过一个抽象类来定义算法的结构，而具体步骤由子类实现。它的核心思想是：<strong>将不变的行为提取到抽象类中，将可变的行为留给子类来实现</strong>。</p>
+<p><strong>特点：</strong></p>
+<p><strong>算法结构固定</strong>：模板方法在抽象类中定义一个算法的框架，框架是固定的，由多个方法组成。</p>
+<p><strong>子类负责实现细节</strong>：模板方法模式将具体的实现细节交给子类来实现，子类可以根据需求自定义某些步骤。</p>
+<p><strong>代码复用性高</strong>：抽象类中定义的公共逻辑可以被多个子类复用，而不用重复编写相同的代码。</p>
+<p><strong>遵循开闭原则</strong>：新增功能时，只需要扩展新的子类实现，不需要修改原有模板代码。</p>
+<p><strong>应用场景：</strong></p>
+<p><strong>具有固定流程的业务逻辑</strong>：当一个算法的整体流程固定不变，而其中某些步骤的实现需要根据具体情况进行定制时。<strong>例如</strong>：制作饮料的过程（烧水 -&gt; 冲泡饮料 -&gt; 加调料 -&gt; 搅拌）。</p>
+<p><strong>避免代码重复</strong>：多个类具有相似的逻辑，只是某些具体步骤不同时，可以通过模板方法模式提取公共逻辑，减少代码重复。</p>
+<p><strong>框架设计</strong>：在框架中定义通用的流程和操作规范，具体实现留给开发者扩展。常见于 Java 框架或 Web 框架中（如 Servlet 生命周期方法）。</p>
+<hr>
+<h3 id="工厂模式和抽象工厂模式有什么区别？"><a href="#工厂模式和抽象工厂模式有什么区别？" class="headerlink" title="工厂模式和抽象工厂模式有什么区别？"></a>工厂模式和抽象工厂模式有什么区别？</h3><p><strong>工厂模式</strong>关注的是<strong>创建单一类型对象</strong>，定义了一个抽象方法，让子类决定实例化哪个类，这样可以将对象的创建推迟到子类。</p>
+<p><strong>举例</strong>：比如你有一个“日志”系统，可以通过不同工厂生成“文件日志”或“数据库日志”。</p>
+<p><strong>抽象工厂模式</strong>关注的是<strong>创建一族相关的对象</strong>，提供了一个接口，用于创建一系列相关或相互依赖的对象，而无需指定它们的具体类。</p>
+<p><strong>举例</strong>：你有一个“UI主题”系统，主题工厂会生成一整套的 UI 控件（按钮、文本框等），而每个主题的按钮和文本框需要保持风格一致。</p>
+<p><strong>代码示例：</strong></p>
+<p>工厂模式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象产品</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">use</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体产品</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductA</span> <span class="keyword">implements</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">use</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Using Product A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductB</span> <span class="keyword">implements</span> <span class="title class_">Product</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">use</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Using Product B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 工厂接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Creator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> Product <span class="title function_">createProduct</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体工厂</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteCreatorA</span> <span class="keyword">extends</span> <span class="title class_">Creator</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Product <span class="title function_">createProduct</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductA</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteCreatorB</span> <span class="keyword">extends</span> <span class="title class_">Creator</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Product <span class="title function_">createProduct</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductB</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Creator</span> <span class="variable">creatorA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteCreatorA</span>();</span><br><span class="line">        <span class="type">Product</span> <span class="variable">productA</span> <span class="operator">=</span> creatorA.createProduct();</span><br><span class="line">        productA.use();</span><br><span class="line"></span><br><span class="line">        <span class="type">Creator</span> <span class="variable">creatorB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteCreatorB</span>();</span><br><span class="line">        <span class="type">Product</span> <span class="variable">productB</span> <span class="operator">=</span> creatorB.createProduct();</span><br><span class="line">        productB.use();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>抽象工厂模式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽象产品 A</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ProductA</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">featureA</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 抽象产品 B</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ProductB</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">featureB</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体产品 A1 和 A2</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductA1</span> <span class="keyword">implements</span> <span class="title class_">ProductA</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">featureA</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Feature A1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductA2</span> <span class="keyword">implements</span> <span class="title class_">ProductA</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">featureA</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Feature A2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体产品 B1 和 B2</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductB1</span> <span class="keyword">implements</span> <span class="title class_">ProductB</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">featureB</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Feature B1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteProductB2</span> <span class="keyword">implements</span> <span class="title class_">ProductB</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">featureB</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Feature B2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 抽象工厂</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    ProductA <span class="title function_">createProductA</span><span class="params">()</span>;</span><br><span class="line">    ProductB <span class="title function_">createProductB</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体工厂 1</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteFactory1</span> <span class="keyword">implements</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ProductA <span class="title function_">createProductA</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductA1</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ProductB <span class="title function_">createProductB</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductB1</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体工厂 2</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcreteFactory2</span> <span class="keyword">implements</span> <span class="title class_">AbstractFactory</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ProductA <span class="title function_">createProductA</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductA2</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ProductB <span class="title function_">createProductB</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ConcreteProductB2</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">AbstractFactory</span> <span class="variable">factory1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteFactory1</span>();</span><br><span class="line">        <span class="type">ProductA</span> <span class="variable">productA1</span> <span class="operator">=</span> factory1.createProductA();</span><br><span class="line">        <span class="type">ProductB</span> <span class="variable">productB1</span> <span class="operator">=</span> factory1.createProductB();</span><br><span class="line">        productA1.featureA();</span><br><span class="line">        productB1.featureB();</span><br><span class="line"></span><br><span class="line">        <span class="type">AbstractFactory</span> <span class="variable">factory2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ConcreteFactory2</span>();</span><br><span class="line">        <span class="type">ProductA</span> <span class="variable">productA2</span> <span class="operator">=</span> factory2.createProductA();</span><br><span class="line">        <span class="type">ProductB</span> <span class="variable">productB2</span> <span class="operator">=</span> factory2.createProductB();</span><br><span class="line">        productA2.featureA();</span><br><span class="line">        productB2.featureB();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="谈谈你了解的最常见的几种设计模式，说说他们的应用场景"><a href="#谈谈你了解的最常见的几种设计模式，说说他们的应用场景" class="headerlink" title="谈谈你了解的最常见的几种设计模式，说说他们的应用场景"></a>谈谈你了解的最常见的几种设计模式，说说他们的应用场景</h3><p>常见的设计模式：<strong>单例模式，工厂模式、抽象工厂模式、策略模式，模板模式</strong>等</p>
+<p><strong>单例模式</strong>：确保一个类在整个应用程序中只有一个实例，并提供一个全局访问点。</p>
+<p>​			<strong>配置管理</strong>：如全局配置类，应用程序中只能有一份配置数据。</p>
+<p>​			<strong>日志管理</strong>：日志记录器通常是全局唯一的。</p>
+<p>​			<strong>线程池</strong>：确保线程池的全局唯一性，避免重复创建资源。</p>
+<p>​			<strong>数据库连接</strong>：共享同一个数据库连接对象，节约资源。</p>
+<p><strong>工厂模式：</strong> 定义一个接口或抽象类，由子类决定实例化具体的产品对象。它将对象的创建与使用分离。</p>
+<p>​			<strong>日志系统</strong>：根据需求创建不同类型的日志，如文件日志、数据库日志。</p>
+<p>​			<strong>解析器</strong>：根据文件类型创建不同的解析器，如 JSON 解析器、XML 解析器。</p>
+<p>​			<strong>消息队列</strong>：创建不同类型的队列，如 Kafka、RabbitMQ。</p>
+<p><strong>抽象工厂模式：</strong> 提供一个接口，用于创建一系列相关或相互依赖的对象，而无需指定它们的具体类。</p>
+<p>​			<strong>UI 系统</strong>：创建一整套风格一致的控件（如按钮、文本框）。</p>
+<p>​			<strong>数据库访问层</strong>：支持不同的数据库（如 MySQL、PostgreSQL），为每种数据库创建相应的操作对象。</p>
+<p><strong>策略模式：</strong> 定义一系列算法，将每种算法封装起来，并使它们可以相互替换。</p>
+<p>​			<strong>支付系统</strong>：支持多种支付方式（微信支付、支付宝、银行卡）。</p>
+<hr>
+<h3 id="你认为好的代码应该是什么样的？"><a href="#你认为好的代码应该是什么样的？" class="headerlink" title="你认为好的代码应该是什么样的？"></a>你认为好的代码应该是什么样的？</h3><ol>
+<li><strong>简洁易懂：</strong>避免冗余和复杂的实现，使用清晰且具有描述性的命名。</li>
+<li><strong>可读性</strong>：代码遵循一定的格式和规范，容易理解代码结构，且添加必要的注释</li>
+<li><strong>可维护性</strong>：代码应该易于修改和拓展，避免硬编码，遵循单一职责原则。</li>
+<li><strong>性能：</strong>在保证代码功能的前提下，选择合适的算法、数据结构和缓存策略提高性能。</li>
+<li><strong>良好的错误处理</strong>：代码应该能处理各种预期之外的情况，提供清晰的错误处理</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://H-Loong.github.io">H-Loong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://h-loong.github.io/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">https://h-loong.github.io/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://H-Loong.github.io" target="_blank">H-Loong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%AB%E8%82%A1%E6%96%87/" title="计算机网络常见八股文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">计算机网络常见八股文</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/07/Redis%E5%85%AB%E8%82%A1%E6%96%87/" title="Redis常见八股文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Redis常见八股文</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/14/OREnG52wk1Z3IXf.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">H-Loong</div><div class="author-info__description">埋头去做，总会发光发热</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/H-Loong"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/H-Loong" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:2638102494@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=2638102494&amp;website=www.oicqzone.com" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎朋友们光临本小站！一起交流学习！（如果图片加载过慢，请使用加速器访问或耐心等待）</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%B8%B8%E8%A7%81%E5%85%AB%E8%82%A1%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">设计模式常见八股文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%AE%9E%E7%8E%B0%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-number">1.0.1.</span> <span class="toc-text">单例模式有哪几种实现？如何保证线程安全？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%EF%BC%9F%E4%B8%80%E8%88%AC%E7%94%A8%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">1.0.2.</span> <span class="toc-text">什么是策略模式？一般用在什么场景？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9F%E4%B8%80%E8%88%AC%E7%94%A8%E5%9C%A8%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">1.0.3.</span> <span class="toc-text">什么是模板方法模式？一般用在什么场景？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.0.4.</span> <span class="toc-text">工厂模式和抽象工厂模式有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%88%E8%B0%88%E4%BD%A0%E4%BA%86%E8%A7%A3%E7%9A%84%E6%9C%80%E5%B8%B8%E8%A7%81%E7%9A%84%E5%87%A0%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8C%E8%AF%B4%E8%AF%B4%E4%BB%96%E4%BB%AC%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.0.5.</span> <span class="toc-text">谈谈你了解的最常见的几种设计模式，说说他们的应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%A0%E8%AE%A4%E4%B8%BA%E5%A5%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E5%BA%94%E8%AF%A5%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-number">1.0.6.</span> <span class="toc-text">你认为好的代码应该是什么样的？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/22/Java%E5%9F%BA%E7%A1%80%E5%85%AB%E8%82%A1%E6%96%87/" title="Java基础八股文">Java基础八股文</a><time datetime="2025-01-22T07:20:21.000Z" title="发表于 2025-01-22 15:20:21">2025-01-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/18/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统常见八股文">操作系统常见八股文</a><time datetime="2025-01-18T07:20:21.000Z" title="发表于 2025-01-18 15:20:21">2025-01-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%85%AB%E8%82%A1%E6%96%87/" title="计算机网络常见八股文">计算机网络常见八股文</a><time datetime="2025-01-14T07:20:21.000Z" title="发表于 2025-01-14 15:20:21">2025-01-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式常见八股文">设计模式常见八股文</a><time datetime="2025-01-09T07:20:21.000Z" title="发表于 2025-01-09 15:20:21">2025-01-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/07/Redis%E5%85%AB%E8%82%A1%E6%96%87/" title="Redis常见八股文">Redis常见八股文</a><time datetime="2025-01-07T07:20:21.000Z" title="发表于 2025-01-07 15:20:21">2025-01-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By H-Loong</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://h-loong.github.io/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/'
+    this.page.identifier = '/2025/01/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/'
+    this.page.title = '设计模式常见八股文'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
